@@ -14,8 +14,9 @@ const postSchema = new mongoose.Schema(
       default: Date.now(),
       select: false
     },
-    name: {
-      type: String,
+    user: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'user', // 指名 ObjectId 是來自於 user schema，需對應 model 匯出的名稱。
       required: [true, '貼文姓名未填寫']
     },
     likes: {

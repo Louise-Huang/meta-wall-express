@@ -1,10 +1,18 @@
 const express = require('express')
 const router = express.Router()
 const Post = require('../models/post')
+const User = require('../models/user')
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
-  const posts = await Post.find()
+  const timeSort = req.query.timeSort === 'asc' ? 'createdAt' : '-createdAt'
+  const q = req.query.q !== undefined ? { 'content': new RegExp(req.query.q) } : {}
+  const posts = await Post.find(q).populate({
+    path: 'user',
+    select: 'name photo'
+  }).sort(timeSort)
+  // asc 遞增(由小到大，由舊到新) createdAt
+  // desc 遞減(由大到小、由新到舊) '-createdAt'
   res.status(200).json({
     posts
   })
