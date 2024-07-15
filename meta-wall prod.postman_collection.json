@@ -33,6 +33,19 @@
 					],
 					"path": [
 						"posts"
+					],
+					"query": [
+						{
+							"key": "timeSort",
+							"value": "asc",
+							"description": "asc, desc",
+							"disabled": true
+						},
+						{
+							"key": "q",
+							"value": null,
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -45,7 +58,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Louise\",\n    \"content\": \"hello2   \"\n}",
+					"raw": "{\n    \"user\": \"6694c2b1eb1427e670e116bd\",\n    \"content\": \"hello2333   \"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
